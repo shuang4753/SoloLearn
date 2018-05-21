@@ -31,30 +31,60 @@ public class Challenges	{
 	public static double cubeRoot(int n)	{
 
 		double cube = 0.0;
-		
+
 		for (int i = 2; i<n; i++)	{
 			if (((i+1)*(i+1)*(i+1)>n) && ((i-1)*(i-1)*(i-1)<n))	{
 				cube += i;
-				
+				break;
+
 			}
 		}
 
 
-		for (double j = 0; j<1; j+=.0001)	{
+		for (double j = .0001; j<1; j+=.0001)	{
 			if (((cube + j)*(cube + j)*(cube + j)>n) && (cube - j)*(cube - j)*(cube - j)<n)	{
-				cube += j;
+				
+				if (((cube + j)*(cube + j)*(cube + j)-n) > .0001)	{
+					System.out.print(j+"  oks      ");
+					cube += j;
+				}
+				
+				else {
+					System.out.print(j+"  mis      ");
+					cube-=j;
+				}
+				break;
+				
+				
+				
+				
+				
+				
 				
 			}
 		}
-
 		return cube;
+
+/*
+ * if (n - (cube +=j)*(cube +=j)*(cube +=j)< .0001)	{
+					cube += j;
+					System.out.print(j+"  oks  ");
+					break;
+				}
+				
+				
+				
+				else {
+					cube -=j;
+					System.out.print(j+"  ji  ");
+					break;
+				}
+ */
+
+
+
+
+
+
 	}
-
-
-
-
-
-
-
-
 }
